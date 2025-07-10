@@ -431,6 +431,21 @@ void VarSpeedServo::write(int value, uint8_t speed) {
 	}
 }
 
+void VarSpeedServo::setServoSpeed(int speed)
+{
+	byte channel = this->servoIndex;
+
+		if( (channel >= 0) && (channel < MAX_SERVOS) ) {   // ensure channel is valid
+		// updated to use constrain instead of if, pva
+
+		// Set speed and direction
+		uint8_t oldSREG = SREG;
+		cli();
+		servos[channel].speed = speed;
+		SREG = oldSREG;
+	}
+}
+
 void VarSpeedServo::write(int value, uint8_t speed, bool wait) {
   write(value, speed);
 
