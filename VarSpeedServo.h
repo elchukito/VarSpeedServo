@@ -161,6 +161,7 @@ public:
   void writeMicroseconds(int value); // Write pulse width in microseconds
   void slowmove(int value, uint8_t speed);
   void stop(); // stop the servo where it is
+  void setServoSpeed(int speed);
 
   int read();                        // returns current pulse width as an angle between 0 and 180 degrees
   int readMicroseconds();            // returns current pulse width in microseconds for this servo (was read_us() in first release)
